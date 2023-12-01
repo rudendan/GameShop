@@ -1,14 +1,12 @@
 package org.example;
 
-import org.example.enums.CardType;
-import org.example.model.Account;
-import org.example.model.User;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.sql.Connection;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
+
+        Connection connection = ConnectionSingleton.getConnection();
+        InitDB.runScript(connection);
 
 
     }
