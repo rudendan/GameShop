@@ -15,7 +15,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
 
-        MenuService menuService = new MenuService(scanner);
+        MenuService menuService = new MenuService(scanner, connection);
         System.out.println(MenuMessages.WELLCOME);
 
 

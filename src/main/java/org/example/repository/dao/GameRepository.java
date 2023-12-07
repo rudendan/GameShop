@@ -7,4 +7,6 @@ import java.util.List;
 public interface GameRepository {
 
     List<Game> getAll();
+
+    Game get(int id);
 }
