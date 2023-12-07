@@ -5,8 +5,8 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-@Builder
 @Data
+@Builder
 public class User {
 
     private int id;
@@ -14,4 +14,5 @@ public class User {
     private String nickname;
     private LocalDate birthday;
     private String password;
+    private int accountId;
 }

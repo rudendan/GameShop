@@ -1,6 +1,6 @@
 package org.example.enums;
 
-public enum CardType {
+public enum Card {
     VISA,
     MASTERCARD;
 }
