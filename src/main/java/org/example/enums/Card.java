@@ -1,6 +1,16 @@
 package org.example.enums;
 
 public enum Card {
-    VISA,
-    MASTERCARD;
+    VISA("VISA"),
+    MASTERCARD("MASTERCARD");
+
+    String type;
+
+    Card(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
 }

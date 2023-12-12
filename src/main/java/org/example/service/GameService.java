@@ -18,4 +18,12 @@ public class GameService {
     public List<Game> getAll() {
         return this.repository.getAll();
     }
+
+    public Game get(int id) {
+        return this.repository.get(id);
+    }
+
+    public List<Game> getUserGames(int id) {
+        return this.repository.getUserGames(id);
+    }
 }

@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Builder
@@ -12,7 +13,7 @@ public class User {
     private int id;
     private String name;
     private String nickname;
-    private LocalDate birthday;
+    private Date birthday;
     private String password;
     private int accountId;
 }

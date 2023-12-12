@@ -14,7 +14,7 @@ public class ConnectionSingleton {
         try {
 
             if (connection == null || connection.isClosed())
-                connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/db", name, password);
+                connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/gameshop", name, password);
 
             return connection;
         } catch (SQLException ex) {

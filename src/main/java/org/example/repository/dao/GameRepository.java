@@ -9,4 +9,6 @@ public interface GameRepository {
     List<Game> getAll();
 
     Game get(int id);
+
+    List<Game> getUserGames(int userId);
 }

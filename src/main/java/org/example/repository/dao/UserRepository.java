@@ -4,9 +4,8 @@ import org.example.model.User;
 
 public interface UserRepository {
 
-    void add(User user);
+    boolean add(User user);
     User get(int id);
-    User get(String nickname);
-    void update(User user);
-    boolean remove(int id);
+    User getByNickAndPass(String nickname, String password);
+    boolean buyGame(int userId, int gameId);
 }
