@@ -46,15 +46,19 @@ public class GameRepositoryImpl implements GameRepository{
         try (PreparedStatement statement = this.connection.prepareStatement(get)) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
-            resultSet.next();
 
-            return creator(resultSet);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            if (resultSet.next())
+                return creator(resultSet);
+
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
+        return null;
     }
 
     private Game creator(ResultSet resultSet) throws SQLException {
+
         return Game.builder()
                 .id(resultSet.getInt("id"))
                 .name(resultSet.getString("name"))

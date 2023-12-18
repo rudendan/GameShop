@@ -1,5 +1,6 @@
 package org.example.repository;
 
+import org.example.enums.MenuMessages;
 import org.example.model.Account;
 import org.example.model.User;
 import org.example.repository.dao.UserRepository;
@@ -50,14 +51,12 @@ public class UserRepositoryImpl implements UserRepository {
 
             if (resultSet.next())
                 return creator(resultSet);
-            else {
-                return null;
-            }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
-
+        return null;
     }
 
     @Override
@@ -70,8 +69,8 @@ public class UserRepositoryImpl implements UserRepository {
 
             statement.execute();
             isCreated = true;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
         return isCreated;
     }

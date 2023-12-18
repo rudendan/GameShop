@@ -18,7 +18,7 @@ public class ConnectionSingleton {
 
             return connection;
         } catch (SQLException ex) {
-
+            System.err.println(ex.getMessage());
         }
         return null;
     }

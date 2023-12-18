@@ -33,11 +33,16 @@ public class MenuService {
 
     private void welcome() {
         System.out.println(MenuMessages.WELLCOME.getMessage());
-        System.out.println(MenuMessages.MENU.getMessage());
+        String answer = scanner.next();
+        if (answer.equals("1"))
+            login();
+        else {
+            System.out.println(MenuMessages.LOGIN_LATER.getMessage());
+            System.out.println(MenuMessages.MENU.getMessage());
+        }
     }
 
     public void run() {
-
 
         welcome();
 
@@ -48,45 +53,55 @@ public class MenuService {
                 command = scanner.nextInt();
 
                 switch (command) {
-                    case 1 -> getAllGames();
+                    case 1 -> {
+                        getAllGames();
+                        System.out.println(MenuMessages.TO_BUY.getMessage());
+                    }
                     case 2 -> System.out.println(getGame().toString());
                     case 3 -> createUser();
-                    case 4 -> login();
+                    case 4 -> {
+                        if (user == null) login();
+                        else System.out.println(MenuMessages.ALREADY_AUTHORIZED.getMessage());
+                    }
                     case 5 -> {
                         if (user != null) {
                             Game game = getGame();
-                            buyGame(user, game);
-                        } else System.out.println("You need to login. Press 4");
+                            if (game != null)
+                                buyGame(user, game);
+                            else
+                                System.out.println(MenuMessages.ERROR_NO_GAME.getMessage());
+                        } else System.out.println(MenuMessages.NEED_TO_LOGIN.getMessage());
                     }
                     case 6 -> {
                         if (user != null)
                             getUserGames(user);
-                        else System.out.println("You need to login. Press 4");
+                        else System.out.println(MenuMessages.NEED_TO_LOGIN.getMessage());
                     }
                     case 7 -> {
                         if (user != null)
                             refillAccount(user);
-                        else System.out.println("You need to login. Press 4");
+                        else System.out.println(MenuMessages.NEED_TO_LOGIN.getMessage());
                     }
+                    case 8 -> System.out.println(MenuMessages.MENU.getMessage());
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("Please enter only digits. 1-6");
+                System.out.println(MenuMessages.INCORRECT_MENU_CHOICE.getMessage());
                 scanner.next();
             }
 
-        } while (command != 8);
+        } while (command != 9);
     }
 
     private void refillAccount(User user) {
 
-        try{
-            System.out.println("Please enter refill amount: ");
+        try {
+            System.out.println(MenuMessages.ENTER_AMOUNT.getMessage());
             double amount = scanner.nextDouble();
             if (accountService.refill(user.getAccountId(), amount))
-                System.out.println("User account was refilled ");
+                System.out.println(MenuMessages.REFILL_SUCCESS.getMessage());
             else
-                System.out.println("Something wrong. Try again...");
+                System.out.println(MenuMessages.ERROR.getMessage());
         } catch (InputMismatchException ex) {
             System.out.println("Please enter only digits.");
         }
@@ -95,7 +110,6 @@ public class MenuService {
 
     private void getAllGames() {
         showAllGames(gameService.getAll());
-        MenuMessages.MAKE_CHOICE.getMessage();
     }
 
     private void getUserGames(User user) {
@@ -104,21 +118,23 @@ public class MenuService {
 
 
     private Game getGame() {
-        System.out.println("Please enter game Id");
+        System.out.println(MenuMessages.ENTER_GAME_ID.getMessage());
         int id = scanner.nextInt();
         return getGameById(id);
     }
 
     private void showAllGames(List<Game> games) {
-
-        for (Game game : games) {
-            System.out.printf("| %-2s | ", game.getId());
-            System.out.printf("%-40s | ", game.getName());
-            System.out.printf("%-6s | ", game.getCost());
-            System.out.printf("%-2s | ", game.getRating());
-            System.out.printf("%-10s | ", game.getReleaseDate());
-            System.out.printf("%-50s | \n", game.getDescription());
-        }
+        if (games.isEmpty())
+            System.out.println(MenuMessages.ERROR_NO_GAMES.getMessage());
+        else
+            for (Game game : games) {
+                System.out.printf("| %-2s | ", game.getId());
+                System.out.printf("%-40s | ", game.getName());
+                System.out.printf("%-6s | ", game.getCost());
+                System.out.printf("%-2s | ", game.getRating());
+                System.out.printf("%-10s | ", game.getReleaseDate());
+                System.out.printf("%-50s | \n", game.getDescription());
+            }
     }
 
     private Game getGameById(int id) {
@@ -128,17 +144,17 @@ public class MenuService {
     private void createUser() {
 
         User.UserBuilder builder = User.builder();
-        System.out.println("Please enter name: ");
+        System.out.println(MenuMessages.ENTER_NAME.getMessage());
         builder.name(scanner.next());
-        System.out.println("Please enter nickname ");
+        System.out.println(MenuMessages.ENTER_NICKNAME.getMessage());
         builder.nickname(scanner.next());
-        System.out.println("Please enter password: ");
+        System.out.println(MenuMessages.ENTER_PASSWORD.getMessage());
         builder.password(scanner.next());
         builder.accountId(createAccount());
 
         if (userService.create(builder.build()))
-            System.out.println("User was created");
-        else System.out.println("");
+            System.out.println(MenuMessages.USER_CREATED.getMessage());
+        else System.out.println(MenuMessages.ERROR.getMessage());
     }
 
     private int createAccount() {
@@ -148,7 +164,7 @@ public class MenuService {
 
         while (exit) {
             try {
-                System.out.println("Please enter what type of card you want to add:\n 1 - " + Card.VISA + "\n 2 - " + Card.MASTERCARD);
+                System.out.println(MenuMessages.SELECT_CARD_TYPE.getMessage());
                 while (true) {
                     int choice = scanner.nextInt();
                     if (choice == 1) {
@@ -157,10 +173,10 @@ public class MenuService {
                     } else if (choice == 2) {
                         card = Card.MASTERCARD.getType();
                         break;
-                    } else System.out.println("Wrong type of card. Please try again...");
+                    } else System.out.println(MenuMessages.WRONG_CHOICE);
                 }
 
-                System.out.println("Please enter amount: ");
+                System.out.println(MenuMessages.ENTER_AMOUNT.getMessage());
                 amount = scanner.nextDouble();
                 exit = false;
             } catch (InputMismatchException ex) {
@@ -172,14 +188,16 @@ public class MenuService {
 
     private void login() {
 
-        System.out.println("Please enter nickname: ");
+        System.out.println(MenuMessages.ENTER_NICKNAME.getMessage());
         String nickname = scanner.next();
-        System.out.println("Please enter password: ");
+        System.out.println(MenuMessages.ENTER_PASSWORD.getMessage());
         String password = scanner.next();
 
         user = userService.authorization(nickname, password);
-        if (user != null) System.out.println("Hello, " + user.getName());
-        else System.out.println("Invalid nickname or password");
+        if (user != null) {
+            System.out.println("Hello, " + user.getName());
+            System.out.println(MenuMessages.MENU.getMessage());
+        } else System.out.println(MenuMessages.INVALID_PASSWORD_OR_NICKNAME.getMessage());
     }
 
     private void buyGame(User user, Game game) {
@@ -188,10 +206,10 @@ public class MenuService {
         double price = game.getCost();
 
         if (price <= amount) {
-            userService.buyGame(user.getId(), game.getId());
-            if (accountService.buyGame(user.getAccountId(), price))
-                System.out.println("Game successfully purchased");
+
+            if (userService.buyGame(user.getId(), game.getId()) & accountService.buyGame(user.getAccountId(), price))
+                System.out.println(MenuMessages.GAME_PURCHASED.getMessage());
         } else
-            System.out.println("Game was not purchased");
+            System.out.println(MenuMessages.GAME_NOT_PURCHASED.getMessage());
     }
 }
