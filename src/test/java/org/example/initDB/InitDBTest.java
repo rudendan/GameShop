@@ -32,7 +32,7 @@ public class InitDBTest {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("There is no such file!");
         }
 
     }
