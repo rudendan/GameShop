@@ -38,8 +38,8 @@ public class AccountRepositoryImpl implements AccountRepository {
             if (rs.next()) {
                 generatedId = rs.getInt(1);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+             System.err.println(ex.getMessage());
         }
         return generatedId;
     }
@@ -47,14 +47,14 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public double get(int id) {
 
-        double amount = 0.0;
+        double amount = -0.1;
         try (PreparedStatement statement = this.connection.prepareStatement(get)) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next())
                 amount = resultSet.getDouble("amount");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
         return amount;
     }
@@ -62,14 +62,14 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public int decrease(int accountId, double amount) {
 
-        int result;
+        int result = 0;
         try (PreparedStatement statement = this.connection.prepareStatement(decrease)) {
             statement.setDouble(1, amount);
             statement.setInt(2, accountId);
 
             result = statement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
         return result;
     }
@@ -77,14 +77,14 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public int increase(double amount) {
 
-        int result;
+        int result = 0;
         try (PreparedStatement statement = this.connection.prepareStatement(increase)) {
             statement.setDouble(1, amount);
             statement.setInt(2, 1000);
 
             result = statement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
 
         return result;
@@ -93,14 +93,14 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public int increase(int accountId, double amount) {
 
-        int result;
+        int result = 0;
         try (PreparedStatement statement = this.connection.prepareStatement(increase)) {
             statement.setDouble(1, amount);
             statement.setInt(2, accountId);
 
             result = statement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
 
         return result;

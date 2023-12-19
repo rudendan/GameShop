@@ -34,8 +34,8 @@ public class GameRepositoryImpl implements GameRepository{
             while (resultSet.next())
                 games.add(creator(resultSet));
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
 
         return games;
@@ -78,8 +78,8 @@ public class GameRepositoryImpl implements GameRepository{
             while (resultSet.next())
                 games.add(creator(resultSet));
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
 
         return games;
