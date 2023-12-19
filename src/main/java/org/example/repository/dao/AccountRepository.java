@@ -2,7 +2,7 @@ package org.example.repository.dao;
 
 public interface AccountRepository {
 
-    int add(String type, double amount);
+    int create(String type, double amount);
     double get(int accountId);
     //boolean update(int accountId, double amount);
 

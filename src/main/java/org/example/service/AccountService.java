@@ -12,7 +12,7 @@ public class AccountService {
 
     public int add(String type, double amount) {
 
-        return this.repository.add(type, amount);
+        return this.repository.create(type, amount);
     }
 
     public double get(int id) {

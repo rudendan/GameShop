@@ -25,7 +25,7 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
 
     @Override
-    public int add(String type, double amount) {
+    public int create(String type, double amount) {
         int generatedId = -1;
 
         try (PreparedStatement statement = this.connection.prepareStatement(add, Statement.RETURN_GENERATED_KEYS)) {

@@ -1,19 +1,18 @@
-package org.example;
+package org.example.initDB;
 
 import org.apache.ibatis.jdbc.ScriptRunner;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class InitDB {
+public class InitDBTest {
 
-
-    public static void runScript(Connection connection, String path) {
+    private static final String pathSQL = "src/test/java/resources/initTest.sql";
+    public static void runScript(Connection connection) {
 
         DatabaseMetaData metaData = null;
         ResultSet resultSet = null;
@@ -27,7 +26,7 @@ public class InitDB {
                 ScriptRunner scriptRunner = new ScriptRunner(connection);
                 scriptRunner.setSendFullScript(false);
                 scriptRunner.setStopOnError(true);
-                scriptRunner.runScript(new FileReader(path));
+                scriptRunner.runScript(new FileReader(pathSQL));
             }
 
         } catch (SQLException e) {

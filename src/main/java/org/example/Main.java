@@ -1,8 +1,6 @@
 package org.example;
 
 
-import org.example.enums.MenuMessages;
-import org.example.service.GameService;
 import org.example.service.MenuService;
 
 import java.sql.Connection;
@@ -12,10 +10,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        try (Connection connection = ConnectionSingleton.getConnection()) {
+        String pathDB = "jdbc:postgresql://localhost:5432/gameshop";
+        String pathSQL = "src/main/resources/init.sql";
+
+        try (Connection connection = ConnectionSingleton.getConnection(pathDB)) {
 
 
-            InitDB.runScript(connection); // create tables in db if they were not created
+            InitDB.runScript(connection, pathSQL); // create tables in db if they were not created
             Scanner scanner = new Scanner(System.in);
             scanner.useDelimiter("\n");
 

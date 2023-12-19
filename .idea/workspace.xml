@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd21a5dd-9a7a-41d7-a63f-a5e6be11a117" name="Changes" comment="12.12.2023">
+    <list default="true" id="bd21a5dd-9a7a-41d7-a63f-a5e6be11a117" name="Changes" comment="18.12.2023: Enums to Menu were added and made some another changes">
+      <change afterPath="$PROJECT_DIR$/src/test/java/resources/initTest.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ConnectionSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ConnectionSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/enums/MenuMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/MenuMessages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/GameRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/GameRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/UserRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InitDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InitDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/AccountRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/AccountRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/dao/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/dao/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/AccountService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +25,9 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -46,42 +51,133 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hw-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Tom/IdeaProjects/PetShelter&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "hw-17",
+    "last_opened_file_path": "C:/Users/Tom/IdeaProjects/GameShop/src/test/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tom\IdeaProjects\GameShop\src\test\java" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tom\IdeaProjects\GameShop\src\main\resources" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example.service" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.repository" />
+      <recent name="org.example.service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.initDB" />
+      <recent name="org.example.connection" />
+    </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+  <component name="RunManager" selected="JUnit.AccountRepositoryImplTest.create">
+    <configuration name="AccountRepositoryImplTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="GameShop" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.enums.*" />
+          <option name="PATTERN" value="org.example.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.example.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.repository.AccountRepositoryImplTest" />
+      <option name="METHOD_NAME" value="create" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountRepositoryImplTest.decrease" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GameShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.repository.AccountRepositoryImplTest" />
+      <option name="METHOD_NAME" value="decrease" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountRepositoryImplTest.get" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GameShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.repository.AccountRepositoryImplTest" />
+      <option name="METHOD_NAME" value="get" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountRepositoryImplTest.increase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GameShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.repository.AccountRepositoryImplTest" />
+      <option name="METHOD_NAME" value="increase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountRepositoryImplTest.testIncrease" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GameShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.repository.AccountRepositoryImplTest" />
+      <option name="METHOD_NAME" value="testIncrease" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.AccountRepositoryImplTest.create" />
+        <item itemvalue="JUnit.AccountRepositoryImplTest.testIncrease" />
+        <item itemvalue="JUnit.AccountRepositoryImplTest.increase" />
+        <item itemvalue="JUnit.AccountRepositoryImplTest.decrease" />
+        <item itemvalue="JUnit.AccountRepositoryImplTest.get" />
       </list>
     </recent_temporary>
   </component>
@@ -96,7 +192,8 @@
       <workItem from="1701361957407" duration="10521000" />
       <workItem from="1701906402892" duration="21448000" />
       <workItem from="1702374208915" duration="33750000" />
-      <workItem from="1702902555162" duration="5851000" />
+      <workItem from="1702902555162" duration="6351000" />
+      <workItem from="1702994581044" duration="14557000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -138,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702416867600</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="18.12.2023: Enums to Menu were added and made some another changes">
+      <option name="closed" value="true" />
+      <created>1702908645931</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702908645931</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,26 +266,7 @@
     <MESSAGE value="07.12.2023_1" />
     <MESSAGE value="07.12.2023_2" />
     <MESSAGE value="12.12.2023" />
-    <option name="LAST_COMMIT_MESSAGE" value="12.12.2023" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/service/MenuService.java</url>
-          <line>119</line>
-          <properties class="org.example.service.MenuService" method="getGame">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/repository/GameRepositoryImpl.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="18.12.2023: Enums to Menu were added and made some another changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="18.12.2023: Enums to Menu were added and made some another changes" />
   </component>
 </project>
