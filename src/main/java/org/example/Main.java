@@ -24,8 +24,8 @@ public class Main {
             menuService.run();
 
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
     }
 }

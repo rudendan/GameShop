@@ -31,8 +31,8 @@ public class UserRepositoryImpl implements UserRepository {
             statement.setInt(5, user.getAccountId());
             statement.execute();
             isCreated = true;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
         return isCreated;
     }
