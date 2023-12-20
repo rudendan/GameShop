@@ -34,7 +34,7 @@ public class MenuService {
     private void welcome() {
         System.out.println(MenuMessages.WELLCOME.getMessage());
         String answer = scanner.next();
-        if (answer.equals("1"))
+        if ("1".equals(answer))
             login();
         else {
             System.out.println(MenuMessages.LOGIN_LATER.getMessage());
@@ -161,9 +161,9 @@ public class MenuService {
     private int createAccount() {
         String card = null;
         double amount = 0.0;
-        boolean exit = true;
+        boolean exit = false;
 
-        while (exit) {
+        while (!exit) {
             try {
                 System.out.println(MenuMessages.SELECT_CARD_TYPE.getMessage());
                 while (true) {
@@ -179,7 +179,7 @@ public class MenuService {
 
                 System.out.println(MenuMessages.ENTER_AMOUNT.getMessage());
                 amount = scanner.nextDouble();
-                exit = false;
+                exit = true;
             } catch (InputMismatchException ex) {
                 System.out.println("Incorrect value");
             }

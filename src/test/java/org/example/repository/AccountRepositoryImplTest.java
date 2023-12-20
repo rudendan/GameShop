@@ -19,6 +19,8 @@ public class AccountRepositoryImplTest {
 
     private Connection connection;
     private AccountRepository accountRepository;
+    private final int testAccountId = 1002;
+    private final int shopAccountId = 1000;
 
     @Before
     public void init() {
@@ -47,37 +49,37 @@ public class AccountRepositoryImplTest {
     public void get() {
 
         int expected = 1560;
-        Assert.assertEquals(expected, ((int) accountRepository.get(1002)));
+        Assert.assertEquals(expected, ((int) accountRepository.get(testAccountId)));
     }
 
     @Test
     public void decrease() {
 
-        int amount = (int) accountRepository.get(1002);
+        int amount = (int) accountRepository.get(testAccountId);
         int expected = amount - 100;
-        accountRepository.decrease(1002, 100.0);
+        accountRepository.decrease(testAccountId, 100.0);
 
-        Assert.assertEquals(expected, (int) accountRepository.get(1002));
+        Assert.assertEquals(expected, (int) accountRepository.get(testAccountId));
 
     }
 
     @Test
     public void increase() {
 
-        int amount = (int) accountRepository.get(1000);
+        int amount = (int) accountRepository.get(shopAccountId);
         int expected = amount + 100;
         accountRepository.increase(100.0);
 
-        Assert.assertEquals(expected, (int) accountRepository.get(1000));
+        Assert.assertEquals(expected, (int) accountRepository.get(shopAccountId));
     }
 
     @Test
     public void testIncrease() {
 
-        int amount = (int) accountRepository.get(1002);
+        int amount = (int) accountRepository.get(testAccountId);
         int expected = amount + 100;
-        accountRepository.increase(1002, 100.0);
+        accountRepository.increase(testAccountId, 100.0);
 
-        Assert.assertEquals(expected, (int) accountRepository.get(1002));
+        Assert.assertEquals(expected, (int) accountRepository.get(testAccountId));
     }
 }
