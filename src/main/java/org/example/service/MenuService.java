@@ -208,7 +208,7 @@ public class MenuService {
 
         if (price <= amount) {
 
-            if (userService.buyGame(user.getId(), game.getId()) & accountService.buyGame(user.getAccountId(), price))
+            if (userService.buyGame(user.getId(), game.getId()) && accountService.buyGame(user.getAccountId(), price))
                 System.out.println(MenuMessages.GAME_PURCHASED.getMessage());
         } else
             System.out.println(MenuMessages.GAME_NOT_PURCHASED.getMessage());

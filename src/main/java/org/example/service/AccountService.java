@@ -20,7 +20,7 @@ public class AccountService {
     }
 
     public boolean buyGame(int accountId, double amount) {
-        return (this.repository.decrease(accountId, amount) > 0) & (this.repository.increase(amount) > 0);
+        return (this.repository.decrease(accountId, amount) > 0) && (this.repository.increase(amount) > 0);
     }
 
     public boolean refill(int accountId, double amount) {

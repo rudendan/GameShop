@@ -33,10 +33,10 @@ public class AccountRepositoryImpl implements AccountRepository {
             statement.setDouble(2, amount);
             statement.execute();
 
-            ResultSet rs = statement.getGeneratedKeys();
+            ResultSet resultSet = statement.getGeneratedKeys();
 
-            if (rs.next()) {
-                generatedId = rs.getInt(1);
+            if (resultSet.next()) {
+                generatedId = resultSet.getInt(1);
             }
         } catch (SQLException ex) {
              System.err.println(ex.getMessage());
