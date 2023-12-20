@@ -29,10 +29,11 @@ public enum MenuMessages {
     INVALID_PASSWORD_OR_NICKNAME("Invalid nickname or password"),
     GAME_PURCHASED("Game successfully purchased"),
     GAME_NOT_PURCHASED("Game was not purchased"),
-    ALREADY_AUTHORIZED("You are already authorized"),
+    ALREADY_AUTHORIZED("You are already authorized."),
     ERROR_NO_GAME("There is no such game!"),
-    ERROR_NO_GAMES("There are no any games. If you want to buy, press 5. To show menu, press 8"),
-    LOGIN_LATER("Ok. You can login later...");
+    ERROR_NO_GAMES("There are no any games. If you want to buy some game, press 5. To show menu, press 8"),
+    LOGIN_LATER("Ok. You can login later..."),
+    MAKE_CHOICE_MENU("\nWhat are you want to do? To show menu again, press 8");
 
 
     private String message;

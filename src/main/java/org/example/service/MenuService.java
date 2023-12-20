@@ -50,6 +50,7 @@ public class MenuService {
         do {
 
             try {
+                System.out.println(MenuMessages.MAKE_CHOICE_MENU.getMessage());
                 command = scanner.nextInt();
 
                 switch (command) {
